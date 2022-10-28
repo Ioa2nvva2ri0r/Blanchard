@@ -116,7 +116,7 @@ const build = series(
   php
 );
 
-const dev = {
+const dev = series(
   clean,
   fonts,
   htmlMinify,
@@ -125,9 +125,8 @@ const dev = {
   scriptsConstant,
   scriptsMinify,
   php,
-  watchFiles,
-};
+  watchFiles
+);
 
-exports.dev = dev;
 exports.build = build;
-// exports.default = dev;
+exports.dev = dev;
