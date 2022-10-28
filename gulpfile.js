@@ -105,28 +105,18 @@ const watchFiles = () => {
   watch('src/img/**', imgRest);
 };
 
-const build = series(
-  clean,
-  fonts,
-  htmlMinify,
-  sassMinify,
-  imgRest,
-  scriptsConstant,
-  scriptsMinify,
-  php
-);
+const projectBuild = (...view) =>
+  series(
+    clean,
+    fonts,
+    htmlMinify,
+    sassMinify,
+    imgRest,
+    scriptsConstant,
+    scriptsMinify,
+    php,
+    ...view
+  );
 
-const dev = series(
-  clean,
-  fonts,
-  htmlMinify,
-  sassMinify,
-  imgRest,
-  scriptsConstant,
-  scriptsMinify,
-  php,
-  watchFiles
-);
-
-exports.build = build;
-exports.dev = dev;
+exports.dev = projectBuild(watchFiles);
+exports.build = projectBuild();

@@ -1,22 +1,8 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-/*!***************************************************
- * google-translate.js v1.0.3
- * https://Get-Web.Site/
- * author: Vitalii P.
- *****************************************************/
-
 const googleTranslateConfig = {
-  /* Original language */
   lang: 'ru',
-  /* The language we translate into on the first visit*/
-  /* Язык, на который переводим при первом посещении */
-  // langFirstVisit: 'en',
-  /* Если скрипт не работает на поддомене,
-  раскомментируйте и
-  укажите основной домен в свойстве domain */
-  /* domain: "Get-Web.Site" */
 };
 
 function TranslateInit() {
