@@ -1,0 +1,26 @@
+.section-aboutUs {
+  min-height: 295px;
+  padding-top: 81px;
+  padding-bottom: 70px;
+  &__title {
+    margin-bottom: 15px;
+  }
+  &__desc {
+    @include throw();
+    width: 100%;
+    max-width: 1074px;
+    margin-inline-start: 2px;
+  }
+  @media (max-width: 450px) {
+    padding-top: 51px;
+    padding-bottom: 40px;
+    &__title {
+      margin-bottom: 12px;
+    }
+    &__desc {
+      font-size: 14px;
+      line-height: 28px;
+      margin-inline-start: 0;
+    }
+  }
+}

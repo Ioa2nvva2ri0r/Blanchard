@@ -1,0 +1,602 @@
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 170px;
+  z-index: 50;
+  &__nav {
+    @include flex-center-between();
+    &-container {
+      @include flex-center();
+      position: relative;
+      min-height: 100px;
+      background: $col-bl;
+    }
+    &-btn {
+      &-open {
+        @include btn-icon();
+        display: none;
+      }
+      &-close {
+        @include btn-icon();
+        display: none;
+      }
+    }
+    &-menu {
+      @include flex-center-between();
+      width: 79.1%;
+    }
+    &-list {
+      @include throw-li();
+      @include flex-between();
+      overflow: hidden;
+      width: 73.5%;
+      padding: 0 20px;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    &-link {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      &::after {
+        top: -3px;
+        padding: 3px 6px;
+      }
+      &:hover {
+        color: $col-pin;
+      }
+      &:focus {
+        color: $col-wi;
+      }
+      &:active {
+        color: $col-vi;
+      }
+      & svg {
+        margin-right: 7px;
+        margin-left: 2.5px;
+      }
+      &:hover svg path {
+        fill: $col-pin;
+      }
+      &:focus svg path {
+        fill: $col-wi;
+      }
+      &:active svg path {
+        fill: $col-vi;
+      }
+    }
+  }
+  &__logo {
+    @include flex-center-center();
+    width: 176px;
+    height: 40px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: outline 0.4s ease-in-out;
+    &:hover {
+      outline-color: $col-pin;
+      transition: outline 0.4s ease-in-out;
+    }
+    &:focus {
+      outline: 2px solid $col-pin;
+      transition: outline 0.4s ease-in-out;
+    }
+    &:active {
+      outline: 2px solid $col-pin-sw;
+      transition: outline 0.4s ease-in-out;
+    }
+    &-img {
+      @include block-100();
+    }
+  }
+  &__content {
+    &-container {
+      @include flex-center();
+      min-height: 70px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    &-nav {
+      @include flex-center-between();
+    }
+    &-list {
+      @include throw-li();
+      @include flex-center-between();
+      width: 100%;
+      max-width: 1066px;
+      padding-right: 30px;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+  &__dropdown {
+    @include throw-li();
+    position: absolute;
+    display: none;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    &-open {
+      @include dropdown-open();
+    }
+    &-close {
+      @include dropdown-close();
+    }
+    &-btn {
+      @include throw-btn();
+      @include flex-center();
+      font-size: 18px;
+      &:hover {
+        color: $col-pin-sw;
+      }
+      &:focus {
+        color: $col-wi;
+      }
+      &:active {
+        color: $col-vi;
+      }
+      & svg {
+        margin-top: 4px;
+        margin-left: 3px;
+      }
+      &:hover svg path {
+        stroke: $col-pin-sw;
+      }
+      &:focus svg path {
+        stroke: $col-wi;
+      }
+      &:active svg path {
+        stroke: $col-vi;
+      }
+      &-active svg {
+        transform: rotate(180deg);
+      }
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+    &-link {
+      @include img();
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      width: 220px;
+      height: 40px;
+      outline: 2px solid transparent;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 19px;
+      color: $col-wi;
+      transition: outline 0.4s ease-in-out, background-color 0.4s ease-in-out;
+      &::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-color: transparent;
+      }
+      &:hover {
+        outline-color: $col-pin-sw;
+        transition: outline 0.4s ease-in-out;
+      }
+      &:focus {
+        outline: 2px solid $col-pin-sw;
+        transition: outline 0.4s ease-in-out;
+      }
+      &:active {
+        outline: 2px solid $col-pin-li;
+        transition: outline 0.4s ease-in-out;
+      }
+      &:active::after {
+        background-color: rgba(194, 131, 243, 0.4);
+        transition: background-color 0.4s ease-in-out;
+      }
+    }
+    &-img {
+      &-1 {
+        background-image: url("../img/desktop/header/dropdown/realism/1.webp");
+      }
+      &-2 {
+        background-image: url("../img/desktop/header/dropdown/realism/2.webp");
+      }
+      &-3 {
+        background-image: url("../img/desktop/header/dropdown/realism/3.webp");
+      }
+      &-4 {
+        background-image: url("../img/desktop/header/dropdown/realism/4.webp");
+      }
+      &-5 {
+        background-image: url("../img/desktop/header/dropdown/impressionism/1.webp");
+      }
+      &-6 {
+        background-image: url("../img/desktop/header/dropdown/impressionism/2.webp");
+      }
+      &-7 {
+        background-image: url("../img/desktop/header/dropdown/impressionism/3.webp");
+      }
+      &-8 {
+        background-image: url("../img/desktop/header/dropdown/impressionism/4.webp");
+      }
+      &-9 {
+        background-image: url("../img/desktop/header/dropdown/post_impressionism/1.webp");
+      }
+      &-10 {
+        background-image: url("../img/desktop/header/dropdown/post_impressionism/2.webp");
+      }
+      &-11 {
+        background-image: url("../img/desktop/header/dropdown/post_impressionism/3.webp");
+      }
+      &-12 {
+        background-image: url("../img/desktop/header/dropdown/post_impressionism/4.webp");
+      }
+      &-13 {
+        background-image: url("../img/desktop/header/dropdown/vanguard/1.webp");
+      }
+      &-14 {
+        background-image: url("../img/desktop/header/dropdown/vanguard/2.webp");
+      }
+      &-15 {
+        background-image: url("../img/desktop/header/dropdown/vanguard/3.webp");
+      }
+      &-16 {
+        background-image: url("../img/desktop/header/dropdown/vanguard/4.webp");
+      }
+      &-17 {
+        background-image: url("../img/desktop/header/dropdown/futurism/1.webp");
+      }
+      &-18 {
+        background-image: url("../img/desktop/header/dropdown/futurism/2.webp");
+      }
+      &-19 {
+        background-image: url("../img/desktop/header/dropdown/futurism/3.webp");
+      }
+      &-20 {
+        background-image: url("../img/desktop/header/dropdown/futurism/4.webp");
+      }
+    }
+    &-block {
+      width: 220px;
+      height: 1400px;
+    }
+  }
+  &__search {
+    &-btn {
+      &-open {
+        @include btn-icon();
+        display: none;
+      }
+      &-close {
+        @include btn-icon();
+        display: none;
+      }
+    }
+    &-form {
+      @include flex-center();
+      padding-right: 2px;
+      &-btn {
+        @include btn-icon();
+        width: 30px;
+        height: 30px;
+        margin-right: 4px;
+        & svg {
+          margin-top: 6px;
+        }
+      }
+    }
+    &-input {
+      cursor: pointer;
+      width: 220px;
+      border: 0;
+      border-bottom: 1px solid $col-wi;
+      padding-top: 4px;
+      padding-bottom: 2px;
+      padding-left: 0;
+      background: transparent;
+      font-size: 18px;
+      color: $col-wi;
+      transition: border-color 0.4s ease-in-out;
+      &::placeholder {
+        font-size: 18px;
+        line-height: 25px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      &:hover {
+        border-color: $col-pin;
+        transition: border-color 0.4s ease-in-out;
+      }
+      &:focus {
+        border-color: $col-vi;
+        transition: border-color 0.4s ease-in-out;
+      }
+    }
+  }
+  @media (max-width: 1250px) {
+    &__container {
+      position: initial !important;
+      padding-top: 6px;
+    }
+    &__nav {
+      &-menu {
+        @include position-abs();
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        height: 768px;
+        padding: 37px 50px;
+        background-color: rgba(0, 0, 0, 0.9);
+        &-open {
+          @include dropdown-open();
+        }
+        &-close {
+          @include dropdown-close();
+        }
+      }
+      &-btn {
+        &-open {
+          display: block;
+        }
+        &-close {
+          display: block;
+          margin-bottom: 43px;
+        }
+      }
+      &-list {
+        justify-content: start;
+        flex-direction: column;
+        width: max-content;
+        padding: 0;
+        margin-bottom: 98px;
+        margin-left: -2px;
+      }
+      &-item {
+        margin-bottom: 29px;
+      }
+      &-link {
+        font-size: 24px;
+        letter-spacing: 0;
+        &::after {
+          padding: 3px 4px;
+        }
+        &-open {
+          text-decoration: none;
+          padding: 15px 0;
+          padding-right: 92px;
+          padding-left: 86px;
+          font-size: 17px;
+          &::after {
+            top: -7px;
+            padding: 5px 6px;
+          }
+          & svg {
+            margin-top: 7px;
+            margin-right: 9px;
+            margin-left: 0;
+          }
+          &:hover {
+            background-color: $col-pin-sw;
+            color: $col-wi;
+          }
+          &:focus {
+            background-color: $col-pin-sw;
+            color: $col-wi;
+          }
+          &:active {
+            background-color: $col-vi;
+            color: $col-wi;
+          }
+          &:hover svg path,
+          &:focus svg path,
+          &:active svg path {
+            fill: $col-wi;
+          }
+        }
+      }
+    }
+    &__logo {
+      width: 190px;
+      height: 43px;
+      margin-right: 7px;
+      margin-bottom: 6px;
+    }
+    &__content {
+      &-container {
+        min-height: max-content;
+        background: transparent;
+      }
+      &-list {
+        display: none;
+      }
+    }
+    &__search {
+      &-box {
+        display: none;
+        position: absolute;
+        top: 35px;
+        right: 2%;
+        height: 35px;
+        width: 259px;
+        background-color: #18171b;
+        &-open {
+          @include visible();
+        }
+        &-close {
+          @include hidden();
+        }
+      }
+      &-btn {
+        &-open {
+          display: block;
+        }
+      }
+      &-form {
+        justify-content: space-between;
+        width: 100%;
+        &-btn {
+          & svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    &__search {
+      &-box {
+        align-items: center;
+        top: 0;
+        left: 0;
+        right: initial;
+        height: 100px;
+        width: 100%;
+        padding: 0 50px;
+        background-color: $col-bl;
+      }
+      &-btn {
+        &-close {
+          display: block;
+        }
+      }
+      &-form {
+        width: 92.5%;
+        margin-right: 22px;
+        &-btn {
+          margin-right: 10px;
+        }
+      }
+      &-input {
+        width: 100%;
+        padding-bottom: 5px;
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    min-height: 45px;
+    &__nav {
+      &-container {
+        min-height: 45px;
+      }
+      &-menu {
+        height: 355px;
+        padding: 15px;
+      }
+      &-btn {
+        &-open {
+          width: 25px;
+          height: 18px;
+          margin-bottom: 10px;
+          & svg {
+            width: 25px;
+            height: 18px;
+          }
+        }
+        &-close {
+          width: 15px;
+          height: 15px;
+          margin-bottom: 16px;
+          margin-left: 1px;
+          & svg {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+      &-list {
+        margin-bottom: 18px;
+        margin-left: 0;
+      }
+      &-item {
+        margin-bottom: 0px;
+      }
+      &-link {
+        font-size: 16px;
+        &-open {
+          display: flex;
+          align-items: center;
+          padding: 5px 30px;
+          font-size: 12px;
+          & svg {
+            width: 9px;
+            margin-top: 0;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+    &__logo {
+      width: 97px;
+      height: 30px;
+    }
+    &__search {
+      &-box {
+        align-items: flex-end;
+        height: 75px;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+      &-btn {
+        &-open {
+          width: 18px;
+          height: 18px;
+          margin-bottom: 10px;
+          & svg {
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+          }
+        }
+        &-close {
+          margin-bottom: auto;
+          width: 15px;
+          height: 15px;
+          & svg {
+            width: 15px;
+            height: 15px;
+          }
+          & svg g {
+            opacity: 1;
+          }
+        }
+      }
+      &-form {
+        padding-left: 42px;
+        padding-right: 12px;
+        padding-bottom: 4px;
+        &-btn {
+          width: 17px;
+          height: 17px;
+          margin-right: 2px;
+          & svg {
+            width: 17px;
+            height: 17px;
+            margin-top: 3px;
+          }
+        }
+      }
+      &-input {
+        font-size: 12px;
+        line-height: 13px;
+        &::placeholder {
+          font-size: 12px;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+}

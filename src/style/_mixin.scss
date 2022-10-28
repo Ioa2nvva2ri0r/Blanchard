@@ -1,0 +1,495 @@
+@mixin throw {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin throw-li {
+  @include throw();
+  list-style: none;
+}
+
+@mixin throw-btn {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+@mixin block-100 {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin position-abs {
+  @include block-100();
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+@mixin position-fix {
+  @include block-100();
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+@mixin position-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin text-nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin animation {
+  animation-duration: 0.4s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@mixin img {
+  @include block-100();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin picture {
+  @include block-100();
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+@mixin transition {
+  transition-duration: 0.4s;
+  transition-property: border, outline, background-color, color;
+  transition-timing-function: ease-in-out;
+}
+
+@mixin transition-icon {
+  transition-duration: 0.4s;
+  transition-property: stroke, fill;
+  transition-timing-function: ease-in-out;
+}
+
+@mixin us-title {
+  @include throw();
+  max-width: 800px;
+  padding-right: 30px;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 65px;
+  margin-inline-start: 2px;
+  @media (max-width: 450px) {
+    max-width: 290px;
+    font-size: 28px;
+    line-height: 38px;
+    margin-inline-start: 0;
+  }
+}
+
+@mixin us-btn {
+  @include throw-btn();
+  @include text-nowrap();
+  position: relative;
+  user-select: none;
+  border: 2px solid $col-pin-sw;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  color: $col-wi;
+  @include transition();
+  &::after {
+    @include block-100();
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    padding: 6px;
+    border: 2px solid transparent;
+    border-radius: 100px;
+    transition: border-color 0.4s ease-in-out;
+  }
+  &:hover {
+    @include transition();
+  }
+  &:focus {
+    @include transition();
+  }
+  &:focus::after {
+    border-color: $col-pin-li;
+    transition: border-color 0.4s ease-in-out;
+  }
+  &:active {
+    background-color: $col-vi;
+    border-color: $col-pin-li;
+    @include transition();
+  }
+  &:active::after {
+    border-color: transparent;
+    transition: border-color 0.4s ease-in-out;
+  }
+}
+
+@mixin us-link {
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+  z-index: 2;
+  color: $col-wi;
+  @include transition();
+  &::after {
+    @include block-100();
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -6px;
+    left: -6px;
+    padding: 6px;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
+  &:hover {
+    @include transition();
+  }
+  &:focus {
+    color: $col-wi;
+    @include transition();
+  }
+  &:focus::after {
+    background-color: $col-vi;
+    transition: background-color 0.4s ease-in-out;
+  }
+  &:active {
+    color: $col-vi;
+    transition: color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+  }
+  &:active::after {
+    background-color: transparent;
+    transition: background-color 0.4s ease-in-out;
+  }
+  & svg > path {
+    @include transition-icon();
+  }
+  &:hover svg path {
+    @include transition-icon();
+  }
+  &:focus svg path {
+    @include transition-icon();
+  }
+  &:active svg path {
+    @include transition-icon();
+  }
+}
+
+@mixin btn-icon {
+  @include throw-btn();
+  & svg > path,
+  & svg > rect {
+    transition: fill 0.4s ease-in-out;
+  }
+  &:hover svg path,
+  &:hover svg rect {
+    fill: $col-pin;
+    transition: fill 0.4s ease-in-out;
+  }
+  &:focus svg path,
+  &:focus svg rect {
+    fill: $col-pin-sw;
+    transition: fill 0.4s ease-in-out;
+  }
+  &:active svg path,
+  &:active svg rect {
+    fill: $col-vi;
+    transition: fill 0.4s ease-in-out;
+  }
+}
+
+@mixin btn-slide {
+  @include throw-btn();
+  position: relative;
+  top: initial;
+  left: initial;
+  right: initial;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    border: 2px solid $col-gr-dr;
+    transition: border-color 0.4s ease-in-out;
+  }
+  & svg > path:first-child {
+    transition: fill 0.4s ease-in-out;
+  }
+  &:hover svg path:first-child {
+    fill: $col-pin-sw;
+    transition: fill 0.4s ease-in-out;
+  }
+  &:hover::after {
+    border-color: $col-pin-sw;
+  }
+  &:focus::after {
+    outline: none;
+    border-color: $col-bl;
+  }
+  &:active::after {
+    border-color: $col-bl;
+  }
+  &:active svg path:first-child {
+    fill: $col-vi;
+  }
+}
+
+@mixin btn-slide-dis {
+  cursor: default;
+  opacity: 0.5;
+  &::after {
+    border: 0;
+  }
+  &:hover svg path,
+  &:focus svg path,
+  &:active svg path {
+    fill: $col-gr-dr;
+  }
+}
+
+@mixin pagination {
+  user-select: none;
+  width: max-content;
+  height: max-content;
+  padding: 0px 18px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: $col-wi;
+}
+
+@mixin checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  & + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+  }
+  & + label::before {
+    content: "";
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border: 1px solid $col-wi;
+    margin-right: 12px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 49%;
+    transition: border-color 0.4s ease-in-out, background-image 0.4s ease-in-out;
+  }
+  & + label::after {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: auto;
+    padding-left: 15px;
+    background-repeat: no-repeat;
+    background-position: 100% center;
+  }
+  &:checked + label {
+    color: $col-pin;
+  }
+  &:checked + label::before {
+    @include checkbox-checked();
+    border-color: $col-pin;
+  }
+  &:checked + label::after {
+    @include label-checked();
+  }
+  &:checked + label:hover {
+    color: $col-vi;
+  }
+  &:checked + label:hover::before {
+    @include checkbox-hover();
+    border-color: $col-vi;
+  }
+  &:not(:checked) + label:hover {
+    color: $col-pin;
+  }
+  &:not(:checked) + label:hover::before {
+    border-color: $col-pin;
+  }
+  &:focus + label {
+    color: $col-vi;
+  }
+  &:focus + label::before {
+    border-color: $col-vi;
+  }
+  &:checked:focus + label::before {
+    @include checkbox-hover();
+  }
+  &:focus:not(:checked) + label {
+    color: $col-pin;
+  }
+  &:focus:not(:checked) + label::before {
+    border-color: $col-pin;
+  }
+  &:active + label {
+    color: $col-pin;
+  }
+  &:active + label::before {
+    border-color: $col-pin;
+  }
+}
+
+@mixin modal {
+  @include position-fix();
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  background: rgba(0, 0, 0, 0.6);
+  @include modal-open();
+}
+
+@mixin modal-container {
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.8);
+  background-color: $col-wi;
+}
+
+// animation
+
+@mixin dropdown-open {
+  z-index: 50;
+  animation-name: dropdown-open;
+  @include animation();
+  @keyframes dropdown-open {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin dropdown-close {
+  z-index: 50;
+  animation-name: dropdown-close;
+  @include animation();
+  @keyframes dropdown-close {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+}
+
+@mixin modal-open {
+  animation-name: modal-open;
+  @include animation();
+  @keyframes modal-open {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin modal-close {
+  animation-name: modal-close;
+  @include animation();
+  @keyframes modal-close {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+}
+
+@mixin visible {
+  animation-name: visible-el;
+  @include animation();
+  @keyframes visible-el {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin hidden {
+  animation-name: hidden-el;
+  @include animation();
+  @keyframes hidden-el {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

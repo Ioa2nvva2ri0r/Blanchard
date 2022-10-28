@@ -1,0 +1,389 @@
+.section-catalog {
+  min-height: 1393px;
+  padding: 81px 0;
+  &__content {
+    padding-bottom: 38px;
+  }
+  &__title {
+    margin-right: 31px;
+    padding: 0;
+    margin-inline-start: 0px;
+  }
+  &__language {
+    &-box {
+      @include flex-wrap();
+      min-height: 59px;
+      padding-bottom: 14px;
+    }
+    &-list {
+      @include throw-li();
+      @include flex-center();
+      padding-top: 1px;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+    &-btn {
+      @include throw-btn();
+      @include flex-center-center();
+      width: 66px;
+      height: 66px;
+      border-radius: 100%;
+      & svg {
+        position: relative;
+        display: inline-block;
+        border-radius: 100%;
+        transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+      }
+      &:hover svg,
+      &:focus svg {
+        box-shadow: (0px 0px 20px rgba(157, 92, 208, 0.7));
+        transition: box-shadow 0.4s ease-in-out;
+      }
+      &:active svg {
+        border: 2px solid $col-vi;
+        box-shadow: none;
+        transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+      }
+      &-active {
+        border: 2px solid $col-vi;
+      }
+    }
+  }
+  &__desc {
+    @include throw();
+    width: 68%;
+    min-height: 117px;
+    margin-inline-start: 2px;
+  }
+  &__tab {
+    width: 100%;
+    max-width: 751px;
+    margin-right: 30px;
+    &-container {
+      display: none;
+      width: 100%;
+      &-active {
+        display: block;
+        @include modal-open();
+      }
+    }
+    &-img {
+      @include picture();
+      max-height: 470px;
+      margin-bottom: 30px;
+    }
+    &-title {
+      @include throw();
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 34px;
+      margin-inline-start: 1px;
+      letter-spacing: 0.15px;
+    }
+    &-subtitle {
+      @include throw();
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 30px;
+      margin-inline-start: 1px;
+      color: $col-gr;
+    }
+    &-desc {
+      @include throw();
+      margin-inline-start: 2px;
+    }
+  }
+  &__accordion {
+    width: 100%;
+    max-width: 801px;
+    min-height: max-content;
+    &-container {
+      @include flex-between();
+    }
+    &-dropdown {
+      @include throw-li();
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-content: flex-start;
+      overflow: hidden;
+      max-height: 0;
+      padding: 0;
+      transition: max-height 0.4s linear, padding 0.4s linear;
+      &-open {
+        max-height: 340px;
+        padding: 26px 0;
+        transition: max-height 0.4s linear, padding 0.4s linear;
+      }
+      &-btn {
+        @include throw-btn();
+        @include flex-center-between();
+        width: 100%;
+        min-height: 115px;
+        border-top: 1px solid $col-gr-li;
+        border-bottom: 1px solid $col-gr-li;
+        padding: 30px 0;
+        @include transition();
+        &-active {
+          border-color: $col-vi;
+          color: $col-vi;
+          & svg {
+            fill: $col-pin-li;
+            transform: rotate(180deg);
+          }
+        }
+        & svg {
+          margin-bottom: 2px;
+          margin-right: 2px;
+        }
+        & svg > path {
+          @include transition-icon();
+        }
+        &:hover {
+          border-color: $col-pin-sw;
+          color: $col-pin-sw;
+          transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out;
+        }
+        &:hover svg path:first-child,
+        &:focus svg path:first-child,
+        &:active svg path:first-child {
+          fill: $col-pin-li;
+          @include transition-icon();
+        }
+        &:focus div {
+          background-color: $col-pin-sw;
+          color: $col-wi;
+          transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+        }
+        &:active {
+          border-color: $col-vi;
+          color: $col-vi;
+          transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out;
+        }
+        &:active div {
+          background-color: transparent;
+          color: $col-vi;
+          transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out;
+        }
+      }
+      &-title {
+        @include throw();
+        @include text-nowrap();
+        max-width: 400px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+      }
+    }
+    &-item {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      min-width: 100px;
+      max-width: 196px;
+      &:not(:nth-last-child(-n + 6)) {
+        margin-right: 42px;
+      }
+      &:nth-child(-n + 9) {
+        margin-right: 60px;
+      }
+    }
+    &-btn {
+      @include throw-btn();
+      border-bottom: 1px solid transparent;
+      padding-bottom: 4px;
+      color: $col-gr-sw;
+      &:hover {
+        border-color: $col-pin-sw;
+        color: $col-pin-sw;
+      }
+      &:focus {
+        border-color: transparent;
+        color: $col-wi;
+      }
+      &:focus::after {
+        background-color: $col-pin-sw;
+      }
+      &:active {
+        border-color: $col-vi;
+        color: $col-vi;
+      }
+      &:active::after {
+        background-color: transparent;
+      }
+      &-active {
+        color: $col-vi;
+      }
+    }
+  }
+  @media (max-width: 1661px) {
+    &__title {
+      margin-right: 33px;
+    }
+    &__content {
+      padding-bottom: 39px;
+    }
+    &__language {
+      &-box {
+        padding-bottom: 7px;
+      }
+      &-list {
+        padding-top: 7px;
+      }
+    }
+    &__accordion {
+      &-dropdown-open {
+        max-height: 440px;
+      }
+      &-item {
+        &:not(:nth-last-child(-n + 6)) {
+          margin-right: 65px;
+        }
+      }
+    }
+  }
+  @media (max-width: 1250px) {
+    &__desc {
+      width: 100%;
+    }
+    &__tab {
+      width: 47.3%;
+      &-img {
+        max-height: 274px;
+      }
+      &-desc {
+        width: 100%;
+      }
+    }
+    &__accordion {
+      width: 47.3%;
+    }
+  }
+  @media (max-width: 1000px) {
+    padding-bottom: 72px;
+    &__content {
+      padding-bottom: 20px;
+    }
+    &__language {
+      &-box {
+        width: 102%;
+        padding-bottom: 12px;
+      }
+      &-list {
+        padding-top: 2px;
+      }
+      &-item:not(:last-child) {
+        margin-right: 33px;
+      }
+    }
+    &__tab {
+      width: 100%;
+      margin-right: 0;
+      &-img {
+        max-height: 419px;
+      }
+    }
+    &__accordion {
+      width: 100%;
+      padding-bottom: 50px;
+      &-container {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+      &-dropdown-open {
+        max-height: 362px;
+      }
+      &-item {
+        &:not(:nth-last-child(-n + 6)) {
+          margin-right: 41px;
+        }
+        &:nth-child(-n + 9) {
+          margin-right: 60px;
+        }
+      }
+    }
+  }
+  @media (max-width: 730px) {
+    &__language {
+      &-item:not(:last-child) {
+        margin-right: 18px;
+      }
+    }
+    &__accordion {
+      &-dropdown-open {
+        max-height: 470px;
+      }
+      &-item {
+        &:nth-child(-n + 9) {
+          margin-right: 15px;
+        }
+        &:not(:nth-last-child(-n + 6)) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    padding: 51px 0;
+    &__content {
+      padding-bottom: 2px;
+    }
+    &__language {
+      &-list {
+        margin-left: -5px;
+        padding-top: 5px;
+      }
+      &-item:not(:last-child) {
+        margin-right: 20px;
+      }
+      &-btn {
+        width: 44px;
+        height: 44px;
+        & svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+    &__desc {
+      display: none;
+    }
+    &__tab {
+      &-img {
+        margin-bottom: 19px;
+      }
+      &-title {
+        margin-bottom: 6px;
+      }
+      &-desc {
+        width: 99%;
+        margin-inline-start: 0;
+      }
+    }
+    &__accordion {
+      &-dropdown {
+        &-open {
+          max-height: 820px;
+          padding: 21px 0;
+        }
+        &-btn {
+          min-height: 72px;
+          padding: 20px 0;
+          & svg {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 0px;
+            margin-right: 0px;
+          }
+        }
+        &-title {
+          font-size: 18px;
+          line-height: 31px;
+        }
+      }
+    }
+  }
+}

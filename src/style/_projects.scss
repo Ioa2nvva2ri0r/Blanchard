@@ -1,0 +1,354 @@
+.section-projects {
+  overflow: hidden;
+  padding-top: 82px;
+  padding-bottom: 81px;
+  &__title {
+    margin-bottom: 14px;
+  }
+  &__desc {
+    @include throw();
+    width: 100%;
+    max-width: 1080px;
+    min-height: 246px;
+    margin-bottom: 20px;
+    margin-inline-start: 1px;
+  }
+  &__tooltipe {
+    @include throw-btn();
+    position: relative;
+    width: 16px;
+    height: 16px;
+    & svg {
+      position: absolute;
+      left: 0px;
+      top: -5px;
+    }
+    & svg > path {
+      transition: fill 0.4s ease-in-out;
+    }
+    &:hover svg path:first-child,
+    &:focus svg path:first-child {
+      fill: $col-pin-li;
+      transition: fill 0.4s ease-in-out;
+    }
+    &:active svg path:first-child {
+      fill: $col-pin-sw;
+    }
+    &:active svg path:last-child {
+      fill: $col-wi;
+    }
+    &-active {
+      & svg path:first-child {
+        fill: $col-pin-sw;
+      }
+      & svg path:last-child {
+        fill: $col-wi;
+      }
+    }
+    &-container {
+      display: inline-block;
+      position: relative;
+    }
+    &-desc {
+      display: none;
+      position: absolute;
+      text-align: center;
+      top: 15%;
+      left: 50%;
+      width: max-content;
+      max-width: 264px;
+      min-height: 31px;
+      padding: 9px 13px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 16px;
+      background-color: $col-pin-sw;
+      color: $col-wi;
+      transform: translateX(-50%) translateY(-120%);
+      &::after {
+        position: absolute;
+        content: "";
+        top: 95%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: $col-pin-sw;
+        transform: rotate(45deg) translateX(-50%);
+      }
+      &-open {
+        @include visible();
+      }
+      &-close {
+        @include hidden();
+      }
+    }
+  }
+  &__link {
+    white-space: nowrap;
+    margin-left: 2px;
+    border-bottom: 1px solid transparent;
+    font-weight: 600;
+    color: $col-pin-sw;
+    &:hover {
+      border-color: $col-pin-sw;
+      color: $col-pin-sw;
+    }
+    &:focus {
+      color: $col-wi;
+    }
+    &:focus::after {
+      background-color: $col-pin-sw;
+    }
+    &:active {
+      border-color: $col-vi;
+      color: $col-vi;
+    }
+    &:active::after {
+      background-color: transparent;
+    }
+  }
+  &__box-slider-btn {
+    @include flex-center-between();
+  }
+  &__slider {
+    max-width: 1490px;
+    padding: 0 20px;
+    &-title {
+      @include throw();
+      max-width: 280px;
+      margin-bottom: 23px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+      margin-inline-start: 2px;
+    }
+    &-btn-1,
+    &-btn-2 {
+      @include btn-slide();
+      &::after {
+        border-color: #ececec;
+      }
+      &:hover svg path:first-child {
+        fill: $col-pin-li;
+      }
+      &:hover::after {
+        border-color: $col-pin-li;
+      }
+      &:focus::after {
+        border-color: $col-pin-sw;
+      }
+      &:active::after {
+        border-color: $col-pin-sw;
+      }
+      &:active svg path:first-child {
+        fill: $col-pin-li;
+      }
+      &.swiper-button-disabled {
+        @include btn-slide-dis();
+        &:hover svg path,
+        &:focus svg path,
+        &:active svg path {
+          fill: #ececec;
+        }
+      }
+    }
+  }
+  &__slide {
+    @include throw-btn();
+    @include flex-center-center();
+    width: 450px;
+    height: 150px;
+    border: 1px solid $col-gr-li;
+    transition: border-color 0.4s ease-in-out;
+    &:focus {
+      border-color: $col-pin-sw;
+    }
+    &:active {
+      border-color: $col-pin-sw;
+    }
+    & svg {
+      transition: opacity 0.4s ease-in-out;
+    }
+    & svg:first-child {
+      opacity: 1;
+    }
+    & svg:last-child {
+      @include position-center();
+      position: absolute;
+      opacity: 0;
+    }
+    &:hover svg:first-child,
+    &:hover svg:first-child {
+      opacity: 0;
+    }
+    &:hover svg:last-child,
+    &:active svg:last-child {
+      opacity: 1;
+    }
+  }
+  @media (max-width: 1250px) {
+    &__desc {
+      &-lineBreak {
+        display: none;
+      }
+    }
+    &__slider {
+      max-width: 858px;
+    }
+    &__slide {
+      height: 128px;
+      &:nth-child(1) svg {
+        width: 210px;
+        height: 52px;
+      }
+      &:nth-child(2) svg {
+        width: 283px;
+        height: 49px;
+      }
+      &:nth-child(3) svg {
+        width: 229px;
+        height: 54px;
+      }
+      &:nth-child(4) svg {
+        width: 105px;
+        height: 73px;
+      }
+      &:nth-child(5) svg {
+        width: 148px;
+        height: 72px;
+      }
+      &:nth-child(6) svg {
+        width: 215px;
+        height: 60px;
+      }
+      &:nth-child(7) svg {
+        width: 244px;
+        height: 59px;
+      }
+      &:nth-child(8) svg {
+        width: 158px;
+        height: 69px;
+      }
+      &:nth-child(9) svg {
+        width: 196px;
+        height: 53px;
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    &__desc {
+      width: 98%;
+      margin-bottom: 26px;
+    }
+    &__slider {
+      max-width: 602px;
+      &-title {
+        margin-bottom: 29px;
+      }
+    }
+    &__slide {
+      height: 106px;
+      &:nth-child(2) svg {
+        width: 217px;
+        height: 38px;
+      }
+      &:nth-child(3) svg {
+        width: 195px;
+        height: 45px;
+      }
+      &:nth-child(5) svg {
+        width: 121px;
+        height: 59px;
+      }
+      &:nth-child(6) svg {
+        width: 176px;
+        height: 48px;
+      }
+      &:nth-child(7) svg {
+        width: 194px;
+        height: 47px;
+      }
+      &:nth-child(8) svg {
+        width: 143px;
+        height: 62px;
+      }
+      &:nth-child(9) svg {
+        width: 182px;
+        height: 49px;
+      }
+    }
+  }
+  @media (max-width: 730px) {
+    &__tooltipe {
+      &-desc {
+        width: auto;
+        &::after {
+          top: 98%;
+        }
+      }
+    }
+    &__slide {
+      height: 65px;
+      &:nth-child(1) svg {
+        width: 105px;
+        height: 26px;
+      }
+      &:nth-child(2) svg {
+        width: 141px;
+        height: 24px;
+      }
+      &:nth-child(3) svg {
+        width: 117px;
+        height: 27px;
+      }
+      &:nth-child(4) svg {
+        width: 53px;
+        height: 37px;
+      }
+      &:nth-child(5) svg {
+        width: 75px;
+        height: 37px;
+      }
+      &:nth-child(6) svg {
+        width: 109px;
+        height: 30px;
+      }
+      &:nth-child(7) svg {
+        width: 124px;
+        height: 30px;
+      }
+      &:nth-child(8) svg {
+        width: 80px;
+        height: 35px;
+      }
+      &:nth-child(9) svg {
+        width: 99px;
+        height: 27px;
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    padding: 51px 0;
+    &__title {
+      margin-bottom: 12px;
+    }
+    &__desc {
+      width: 100%;
+      margin-bottom: 9px;
+    }
+    &__link {
+      margin-left: 0;
+    }
+    &__slider {
+      padding: 0 18px;
+      &-title {
+        margin-bottom: 11px;
+        font-size: 18px;
+        margin-inline-start: 0;
+      }
+    }
+    &__slide {
+      height: 65px;
+    }
+  }
+}

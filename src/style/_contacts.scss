@@ -1,0 +1,304 @@
+.section-contacts {
+  &__title {
+    @include throw();
+    margin-bottom: 15px;
+  }
+  &__content {
+    @include flex-center();
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    &-box {
+      width: 100%;
+      max-width: 682px;
+      min-height: 700px;
+      border: 1px solid $col-gr-li;
+      padding-top: 122px;
+      padding-bottom: 50px;
+      padding-left: 159px;
+      padding-right: 50px;
+    }
+  }
+  &__address {
+    font-style: normal;
+    line-height: 35px;
+    margin-bottom: 27px;
+    &::first-line {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    &-index {
+      font-family: "Trebuchet MS";
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 39px;
+    &-title {
+      @include throw();
+      user-select: none;
+      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: 400;
+    }
+    &-input {
+      cursor: pointer;
+      width: 100%;
+      height: 40px;
+      border: 1px solid $col-gr-sw;
+      border-radius: 100px;
+      padding: 4px 24px;
+      transition: background-color 0.4s ease-in-out;
+      &::placeholder {
+        font-size: 16px;
+        line-height: 32px;
+        color: $col-gr;
+      }
+      &:hover {
+        background-color: #eaeaea;
+      }
+      &:focus {
+        background-color: #eaeaea;
+      }
+      &:active {
+        background-color: transparent;
+      }
+      &-box {
+        @include flex-between();
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        min-height: 103px;
+        margin-bottom: 23px;
+      }
+    }
+    &-btn {
+      width: max-content;
+      max-width: 157px;
+      padding: 14px 33px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+      color: $col-pin-sw;
+      &:hover {
+        background-color: $col-pin-sw;
+        color: $col-wi;
+      }
+      &:focus {
+        background-color: $col-pin-sw;
+        color: $col-wi;
+      }
+      &:active {
+        background-color: $col-vi;
+        color: $col-wi;
+      }
+    }
+  }
+  &__contacts {
+    &-title {
+      @include throw();
+      user-select: none;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+    }
+    &-list {
+      @include throw-li();
+      display: flex;
+      padding-top: 15px;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    &-link {
+      display: block;
+      width: 40px;
+      height: 40px;
+      & svg {
+        border: 1px solid transparent;
+        border-radius: 100px;
+        transition: opacity 0.4s ease-in-out, border-color 0.4s ease-in-out;
+      }
+      &:hover svg,
+      &:focus svg {
+        opacity: 0.5;
+      }
+      &:active svg {
+        opacity: 1;
+        border-color: #9643a4;
+      }
+    }
+  }
+  &__map {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1235px;
+    min-height: 700px;
+    &-content {
+      width: 100%;
+      min-height: 700px;
+    }
+    &-preloader {
+      @include position-center();
+      position: absolute;
+      z-index: 50;
+      animation: rotating 1s linear infinite;
+      @keyframes rotating {
+        from {
+          transform: rotate(360deg);
+        }
+        to {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+  &__popup {
+    @include modal();
+    &-close {
+      @include modal-close();
+    }
+    &-container {
+      @include modal-container();
+      @include flex-center-center();
+      flex-direction: column;
+      max-width: 500px;
+      width: 100%;
+      max-height: 500px;
+      padding: 25px;
+      background-color: $col-bl;
+    }
+    &-btn {
+      @include btn-icon();
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    &-desc {
+      text-align: center;
+      width: 100%;
+      padding-top: 35px;
+      font-size: 30px;
+      font-weight: 700;
+      color: $col-wi;
+    }
+  }
+  @media (max-width: 1250px) {
+    &__content {
+      &-box {
+        max-width: 487px;
+        padding-top: 122px;
+        padding-left: 49px;
+      }
+    }
+    &__form {
+      &-input {
+        &-box {
+          max-width: 335px;
+        }
+      }
+    }
+    &__contacts {
+      &-item:not(:last-child) {
+        margin-right: 30px;
+      }
+      &-link {
+        width: 60px;
+        height: 60px;
+        & svg {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    &__content {
+      &-box {
+        padding-right: 15px;
+      }
+    }
+  }
+  @media (max-width: 730px) {
+    &__content {
+      &-box {
+        border: 0;
+        padding-top: 0;
+        padding-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+    &__address {
+      font-size: 14px;
+      line-height: 25px;
+      margin-bottom: 353px;
+      &::first-line {
+        font-size: 18px;
+        line-height: 17px;
+      }
+    }
+    &__form {
+      margin-bottom: 20px;
+      &-title {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 16px;
+      }
+      &-input {
+        &-box {
+          min-height: 100px;
+          margin-bottom: 20px;
+        }
+      }
+      &-btn {
+        padding: 6px 33px;
+        font-size: 12px;
+      }
+    }
+    &__contacts {
+      &-title {
+        font-size: 18px;
+      }
+      &-list {
+        padding-top: 6px;
+      }
+      &-item:not(:last-child) {
+        margin-right: 20px;
+      }
+      &-link {
+        width: 50px;
+        height: 50px;
+        & svg {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    &__map {
+      position: absolute;
+      top: 54px;
+      min-height: initial;
+      height: 320px;
+      &-content {
+        height: 320px;
+      }
+      &-preloader {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    &__popup {
+      &-container {
+        max-width: 290px;
+      }
+    }
+  }
+}

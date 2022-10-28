@@ -1,0 +1,92 @@
+.footer {
+  background: $col-bl;
+  height: 140px;
+  &__container {
+    @include flex-center-between();
+    height: 100%;
+  }
+  &__img-logo {
+    width: 173px;
+    height: 40px;
+  }
+  &__list {
+    @include throw-li();
+    display: flex;
+    padding-right: 2px;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  &__link {
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    transition: box-shadow 0.4s ease-in-out;
+    & svg > path {
+      transition: fill 0.4s ease-in-out;
+    }
+    &:hover, &:focus {
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+      transition: box-shadow 0.4s ease-in-out;
+    }
+    &:active {
+      box-shadow: none;
+      transition: box-shadow 0.4s ease-in-out;
+    }
+    &:focus svg path {
+      fill: $col-wi;
+       transition: fill 0.4s ease-in-out;
+    }
+    &:hover svg path {
+      fill: $col-wi;
+       transition: fill 0.4s ease-in-out;
+    }
+    &:active svg path {
+      fill: $col-pin-sw;
+       transition: fill 0.4s ease-in-out;
+    }
+  }
+  @media (max-width: 1250px) {
+    &__item:not(:last-child) {
+      margin-right: 29px;
+    }
+    &__link {
+      width: 60px;
+      height: 60px;
+      & svg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    &__img-logo {
+     margin-left: 2px;
+    }
+  }
+  @media (max-width: 730px) {
+    height: 132px;
+    padding: 20px 0;
+    &__container {
+      flex-direction: column-reverse;
+    }
+    &__img-logo {
+      width: 97px;
+      height: 22px;
+    }
+    &__item:not(:last-child) {
+      margin-right: 30px;
+    }
+    &__link {
+      width: 50px;
+      height: 50px;
+      & svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,325 @@
+.section-editions {
+  @include img();
+  min-height: 763px;
+  background-image: url("../img/desktop/editions/1.webp");
+  &__container {
+    @include flex-between();
+    padding-top: 82px;
+    padding-bottom: 30px;
+  }
+  &__box-title-checkbox {
+    width: 100%;
+    max-width: 277px;
+  }
+  &__title {
+    margin-bottom: 14px;
+    color: $col-wi;
+  }
+  &__dropdown {
+    @include throw-li();
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 27px;
+    color: $col-wi;
+    &-btn {
+      @include throw();
+      font-size: 16px;
+      line-height: 32px;
+      color: $col-wi;
+      & svg {
+        display: none;
+      }
+    }
+    &-item {
+      position: relative;
+    }
+  }
+  &__checkbox {
+    @include checkbox();
+    &-label {
+      line-height: 30px;
+    }
+  }
+  &__price {
+    &-title {
+      @include throw();
+      margin-bottom: 7px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 32px;
+      color: $col-wi;
+    }
+    &-container {
+      @include flex-center();
+      width: 277px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+      padding: 0 10px;
+      color: $col-wi;
+    }
+    &-desc {
+      @include text-nowrap();
+      text-overflow: initial;
+      max-width: 32px;
+    }
+    &-input {
+      @include throw-btn();
+      width: 73px;
+      height: 100%;
+      margin: 0 10px;
+      padding: 4px 10px;
+      background-color: rgba(180, 114, 208, 0.5);
+      font-size: 16px;
+      line-height: 32px;
+      color: $col-wi;
+      transition: outline 0.4s ease-in-out, background-color 0.4s ease-in-out;
+      &::placeholder {
+        font-size: 16px;
+        line-height: 32px;
+        color: $col-wi;
+      }
+      &:hover {
+        background-color: $col-pin-sw;
+        transition: background-color 0.4s ease-in-out;
+      }
+      &:focus {
+        background-color: $col-pin-sw;
+        outline: 1px solid $col-wi;
+        transition: outline 0.4s ease-in-out, background-color 0.4s ease-in-out;
+      }
+    }
+  }
+  &__slider {
+    overflow: hidden;
+    max-width: 1182px;
+    min-height: 611px;
+    margin: 0;
+    padding-top: 31px;
+    padding-left: 30px;
+    &-box-btn {
+      display: flex;
+      padding-bottom: 28px;
+    }
+  }
+  &__slide {
+    min-height: 518px;
+    width: 350px;
+    &-img {
+      @include picture();
+      max-height: 390px;
+      margin-bottom: 26px;
+    }
+    &-desc {
+      @include flex-between();
+      margin-bottom: 14px;
+      color: $col-wi;
+    }
+    &-title {
+      @include throw();
+      margin-right: 10px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      margin-inline-start: 1px;
+      &::first-line {
+        font-weight: 700;
+        line-height: 21px;
+      }
+    }
+    &-price {
+      @include text-nowrap();
+      line-height: 20px;
+      letter-spacing: -0.1px;
+    }
+    &-btn {
+      max-width: 121px;
+      padding: 8px 19px;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 19px;
+      letter-spacing: 0.1px;
+      &:hover {
+        background-color: $col-pin-sw;
+      }
+      &:focus {
+        background-color: $col-pin-sw;
+      }
+      &:active {
+        background-color: $col-vi;
+      }
+    }
+  }
+  @media (max-width: 1250px) {
+    background-image: url("../img/1024px/editions/1.webp");
+    &__slider {
+      max-width: 636px;
+      padding-top: 33px;
+      padding-left: 6px;
+    }
+    &__slide {
+      width: 290px;
+      &-img {
+        height: 320px;
+        margin-bottom: 14px;
+      }
+      &-desc {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    background-image: url("../img/768px/editions/1.webp");
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 86px;
+    }
+    &__box-title-checkbox {
+      width: 100%;
+      max-width: 670px;
+    }
+    &__title {
+      margin-bottom: 15px;
+    }
+    &__dropdown {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      max-height: 130px;
+      margin-bottom: 24px;
+      &-item:not(:nth-last-child(-n + 4)) {
+        margin-right: 58px;
+      }
+    }
+    &__slider {
+      max-width: 642px;
+      min-height: 588px;
+      padding-top: 50px;
+      padding-left: 29px;
+      margin-right: 29px;
+      &-box-btn {
+        margin-left: -28px;
+      }
+    }
+    &__slide {
+      min-height: 479px;
+      &-img {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  @media (max-width: 730px) {
+    &__container {
+      padding-top: 30px;
+    }
+    &__dropdown {
+      max-height: initial;
+    }
+    &__slider {
+      max-width: 385px;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 450px) {
+    background-image: url("../img/320px/editions/1.webp");
+    min-height: 1542px;
+    &__container {
+      padding-top: 51px;
+    }
+    &__title {
+      margin-bottom: 11px;
+    }
+    &__dropdown {
+      flex-wrap: initial;
+      justify-content: initial;
+      max-height: initial;
+      margin-bottom: 18px;
+      &-btn {
+        @include flex-center-between();
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 3px 0;
+        & svg {
+          display: block;
+        }
+        &-active {
+          & svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &-item {
+        display: none;
+        height: max-content;
+        line-height: initial;
+        &:not(:nth-last-child(-n + 4)) {
+          margin-right: 0;
+        }
+        &-active {
+          display: block;
+        }
+        &-open {
+          display: block;
+        }
+      }
+    }
+    &__checkbox {
+      &-label {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 4px 0;
+      }
+      &:checked + label::after {
+        content: "";
+      }
+    }
+    &__slider {
+      overflow: initial;
+      padding-left: 0;
+      margin-right: 0;
+      &-box-btn {
+        display: none;
+      }
+      &-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+    &__slide {
+      width: 130px;
+      min-height: 255px;
+      &:not(:nth-child(2n)) {
+        margin-right: 25px;
+      }
+      &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: 49px;
+      }
+      &-img {
+        height: 143px;
+        margin-bottom: 8px;
+      }
+      &-desc {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      &-title {
+        @include text-nowrap();
+        margin-right: 0;
+        font-size: 12px;
+        line-height: 14px;
+        &::first-line {
+          line-height: 19px;
+        }
+      }
+      &-price {
+        font-size: 12px;
+      }
+      &-btn {
+        padding: 8px 28px;
+        font-size: 13px;
+      }
+    }
+  }
+}
