@@ -13,11 +13,11 @@ const del = require('del');
 const browserSync = require('browser-sync').create();
 
 const clean = () => {
-  return del(['dist']);
+  return del(['build']);
 };
 
 const fonts = () => {
-  return src('src/fonts/**/*.{woff,woff2}').pipe(dest('dist/fonts'));
+  return src('src/fonts/**/*.{woff,woff2}').pipe(dest('build/fonts'));
 };
 
 const htmlMinify = () => {
@@ -30,7 +30,7 @@ const htmlMinify = () => {
         minifyCSS: true,
       })
     )
-    .pipe(dest('dist'))
+    .pipe(dest('build'))
     .pipe(browserSync.stream());
 };
 
@@ -50,7 +50,7 @@ const sassMinify = () => {
       })
     )
     .pipe(sourcemaps.write())
-    .pipe(dest('dist/style'))
+    .pipe(dest('build/style'))
     .pipe(browserSync.stream());
 };
 
@@ -65,7 +65,7 @@ const scriptsMinify = () => {
     )
     .pipe(uglify().on('eroor', notify.onError()))
     .pipe(sourcemaps.write())
-    .pipe(dest('dist/js'))
+    .pipe(dest('build/js'))
     .pipe(browserSync.stream());
 };
 
@@ -74,26 +74,26 @@ const scriptsConstant = () => {
     .pipe(sourcemaps.init())
     .pipe(concat('libraries.min.js'))
     .pipe(sourcemaps.write())
-    .pipe(dest('dist/js'))
+    .pipe(dest('build/js'))
     .pipe(browserSync.stream());
 };
 
 const php = () => {
   return src(['src/php/**/*.php'])
-    .pipe(dest('dist/php'))
+    .pipe(dest('build/php'))
     .pipe(browserSync.stream());
 };
 
 const imgRest = () => {
   return src(['src/img/**/*.{png,svg,webp,ico,webmanifest,xml}'])
-    .pipe(dest('dist/img'))
+    .pipe(dest('build/img'))
     .pipe(browserSync.stream());
 };
 
 const watchFiles = () => {
   browserSync.init({
     server: {
-      baseDir: 'dist',
+      baseDir: 'build',
     },
   });
 
